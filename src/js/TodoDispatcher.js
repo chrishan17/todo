@@ -1,3 +1,3 @@
 const Dispatcher = require('flux').Dispatcher
 
-export default Dispatcher
+export default new Dispatcher()

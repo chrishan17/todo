@@ -1,10 +1,14 @@
 import React from 'react'
 
 function TodoInput(props) {
+  const handleSubmitTodo = function(e) {
+    e.preventDefault()
+    props.onHandleSubmitTodo(e.target.elements.todo.value)
+  }
   return (
-    <form>
-      <input placeholder="Let's rock" value={props.todoInput} />
-      <button>submit</button>
+    <form onSubmit={handleSubmitTodo}>
+      <input type="text" name="todo" placeholder="Let's rock" />
+      <button type="submit">Submit</button>
     </form>
   )
 }
