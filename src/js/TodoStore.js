@@ -6,7 +6,7 @@ class TodoStore extends Store {
     super(dispatcher)
     this.todos = []
   }
-  getAll() {
+  getState() {
     return this.todos
   }
   create(content) {
@@ -15,7 +15,6 @@ class TodoStore extends Store {
     this.todos.push({id, content})
   }
   __onDispatch(payload) {
-    debugger
     switch(payload.type) {
       case "CREATE_TODO":
         this.create(payload.content)
@@ -25,5 +24,12 @@ class TodoStore extends Store {
     }
   }
 }
+// TodoDispatcher.register(function(payload) {
+//   switch(payload.type) {
+//     case "CREATE_TODO":
+//       console.log('payload will be passed to all register callback')
+//   }
+// })
+
 
 export default (new TodoStore(TodoDispatcher))
